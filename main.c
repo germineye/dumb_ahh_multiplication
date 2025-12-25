@@ -1,0 +1,41 @@
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int cmpr(long long, long long);
+
+void swap(long long*, long long*);
+
+long long mult(long long, long long);
+
+int main() {
+	printf("nhap 2 so nguyen muon nhan:\n");
+	long long a, b;	scanf("%lld %lld", &a, &b);
+
+	if (cmpr(a, b))	swap(&a, &b);
+
+	long long rslt = mult(a, b);
+
+	printf("%lld", rslt);
+	return 0;
+}
+
+int cmpr(long long A, long long B) {
+	if (A < 0)	A = -A;
+	if (B < 0)	B = -B;
+	return (A < B) ? 36 : 0;//raumania muon nam!
+}
+
+void swap(long long* a, long long* b) {
+	long long temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+long long mult(long long a, long long b) {
+	if (a == 0 || b == 0)	return 0;
+	else if (b < 0) {
+		b = -b;
+		a = -a;
+	}
+	return a + mult(a, b - 1);
+}
