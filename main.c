@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int cmpr(long long, long long);
@@ -11,11 +11,11 @@ int main() {
 	printf("nhap 2 so nguyen muon nhan:\n");
 	long long a, b;	scanf("%lld %lld", &a, &b);
 
+	if (a == 0 || b == 0) { printf("0"); return 0; }
+
 	if (cmpr(a, b))	swap(&a, &b);
 
-	long long rslt = mult(a, b);
-
-	printf("%lld", rslt);
+	long long rslt = mult(a, b);	printf("%lld", rslt);
 	return 0;
 }
 
@@ -351,7 +351,7 @@ void swap(long long* a, long long* b) {
 }
 
 long long mult(long long a, long long b) {
-	if (a == 0 || b == 0)	return 0;
+	if (b == 0)	return 0;
 	else if (b < 0) {
 		b = -b;
 		a = -a;
