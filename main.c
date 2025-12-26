@@ -337,6 +337,7 @@ int main() {
 
 
 
+
 int cmpr(long long A, long long B) {
 	if (A < 0)	A = -A;
 	if (B < 0)	B = -B;
@@ -356,5 +357,4 @@ long long mult(long long a, long long b) {
 		a = -a;
 	}
 	return a + mult(a, b - 1);
-
 }
